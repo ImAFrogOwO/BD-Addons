@@ -97,7 +97,7 @@ return S.SettingPanel.build((id, value) => {
 			}
 }
 		if (settings.modals) {
-		const modal = element.querySelector(`[class*="root_ba16f0"]`);
+		const modal = element.querySelector(`[class*=${BdApi.findModuleByProps('tabBarContainer').root}]`);
 		if (modal) {
 			const userId = findInTree(BdApi.ReactUtils.getInternalInstance(modal), m => m?.user?.id || m?.userId || m?.message?.author?.id, {
 				walkable: ["memoizedProps", "return"]
@@ -118,7 +118,7 @@ return S.SettingPanel.build((id, value) => {
 }
 
 		if (settings.messages) {
-		const messages = element.querySelectorAll(`[class*="message__80c10"]`);
+		const messages = element.querySelector(`[class*=${BdApi.findModuleByProps('automodMessage').message}]`);
 		if (messages.length) {
 			for (const message of messages) {
 				const userId = findInTree(BdApi.ReactUtils.getInternalInstance(message), m => m?.user?.id || m?.userId || m?.message?.author?.id, {walkable: ["memoizedProps", "return"]});
