@@ -118,7 +118,7 @@ return S.SettingPanel.build((id, value) => {
 }
 
 		if (settings.messages) {
-		const messages = element.querySelector(`[class*=${BdApi.findModuleByProps('automodMessage').message}]`);
+		const messages = element.querySelectorAll(`[class*=${BdApi.findModuleByProps('automodMessage').message}]`);
 		if (messages.length) {
 			for (const message of messages) {
 				const userId = findInTree(BdApi.ReactUtils.getInternalInstance(message), m => m?.user?.id || m?.userId || m?.message?.author?.id, {walkable: ["memoizedProps", "return"]});
